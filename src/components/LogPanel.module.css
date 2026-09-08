@@ -1,0 +1,248 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  min-height: 0;
+  padding: 16px;
+}
+
+/* Stats bar */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.statItem:last-of-type {
+  border-right: none;
+}
+
+.statItem { padding: 10px 16px; }
+
+.statNum {
+  font-size: 19px;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.statSuccess .statNum { color: var(--success); }
+.statFailed  .statNum { color: var(--danger-text); }
+
+.statActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 0 10px;
+}
+
+.actionBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px 8px;
+  font-size: 10px;
+  font-family: var(--mono);
+  transition: all 0.1s;
+  letter-spacing: 0.04em;
+}
+.actionBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-bright);
+}
+
+.autoScrollLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--mono);
+  user-select: none;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 3px;
+}
+
+.filterBtn {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 3px 10px;
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  transition: all 0.1s;
+}
+.filterBtn:hover { color: var(--text-primary); border-color: var(--border-bright); }
+.filterBtnActive {
+  background: var(--accent-dim) !important;
+  border-color: var(--accent-border) !important;
+  color: var(--accent-text) !important;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 120px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  transition: border-color 0.15s;
+}
+.searchInput::placeholder { color: var(--text-muted); }
+.searchInput:focus { border-color: var(--accent-border); }
+
+/* Log list */
+.logList {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+  padding-right: 2px;
+}
+
+.empty {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 24px 0;
+  font-family: var(--mono);
+}
+
+/* Log items */
+.logItem {
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-mid);
+  background: var(--bg-surface);
+  transition: border-color 0.15s;
+}
+.logItem:hover {
+  border-color: var(--border-mid);
+}
+
+.logHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1.45;
+  transition: background 0.1s;
+}
+.logHeader:hover {
+  background: var(--bg-elevated);
+}
+
+.logTime {
+  color: var(--text-muted);
+  font-family: var(--mono);
+  flex-shrink: 0;
+  font-size: 10px;
+  margin-top: 1px;
+  min-width: 90px;
+}
+
+.logStatusIcon {
+  flex-shrink: 0;
+  font-size: 10px;
+  margin-top: 2px;
+  width: 10px;
+  text-align: center;
+}
+
+.logMsg {
+  flex: 1;
+  word-break: break-all;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.logToggle {
+  color: var(--text-muted);
+  font-size: 9px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-family: var(--mono);
+}
+
+.logDetail {
+  padding: 6px 8px 8px 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  background: var(--bg-base);
+  border-top: 1px dashed var(--border);
+}
+
+/* Status variants */
+.success {
+  border-left-color: var(--success);
+}
+.success .logMsg { color: var(--success-text); }
+.success .logDetail { color: var(--success-text); opacity: 0.8; }
+
+.failed {
+  border-left-color: var(--danger);
+}
+.failed .logMsg { color: var(--danger-text); }
+.failed .logDetail { color: var(--danger-text); opacity: 0.8; }
+
+.system {
+  border-left-color: var(--accent);
+}
+.system .logMsg { color: var(--accent-text); }
+.system .logDetail { color: var(--accent-text); opacity: 0.8; }

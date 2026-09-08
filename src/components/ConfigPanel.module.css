@@ -1,0 +1,367 @@
+.panel {
+  padding: 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  flex-shrink: 0;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.connected {
+  color: var(--success-text);
+  background: var(--success-dim);
+  border-color: var(--success-border);
+}
+
+.connecting {
+  color: var(--warning-text);
+  background: var(--warning-dim);
+  border-color: var(--warning-border);
+  animation: blink 1.2s ease infinite;
+}
+
+.disconnected {
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border-color: var(--border);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.hint {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hintDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.formFull {
+  grid-column: span 2;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formItem label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--sans);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.required {
+  color: var(--danger-text);
+}
+
+.optional {
+  color: var(--text-muted);
+  font-size: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.formInput {
+  padding: 10px 12px;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  font-family: var(--mono);
+  transition: all 0.2s ease;
+}
+
+.formInput::placeholder {
+  color: var(--text-muted);
+}
+
+.formInput:focus {
+  border-color: var(--accent-border);
+  background: var(--bg-active);
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.formItem input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.error {
+  background: var(--danger-dim);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--danger-text);
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btnConnect {
+  background: var(--accent-grad);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--sans);
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+.btnConnect:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.btnConnect:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnDisconnect {
+  background: var(--danger-dim);
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--mono);
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+.btnDisconnect:hover {
+  background: var(--danger-dim);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.userId {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--success-text);
+  margin-left: 4px;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── 一键验证栏 ── */
+.verifyBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.btnVerify {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--mono);
+  background: var(--accent-dim);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btnVerify:hover:not(:disabled) {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.btnVerify:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.verifyResult {
+  font-size: 12px;
+  font-family: var(--mono);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+
+.verify_running {
+  color: var(--warning-text);
+  background: var(--warning-dim);
+  border-color: var(--warning-border);
+}
+.verify_ok {
+  color: var(--success-text);
+  background: var(--success-dim);
+  border-color: var(--success-border);
+}
+.verify_fail {
+  color: var(--danger-text);
+  background: var(--danger-dim);
+  border-color: var(--danger-border);
+}
+
+/* 转圈动画 */
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--warning-border);
+  border-top-color: var(--warning-text);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .btnConnect, .btnDisconnect {
+    padding: 12px 16px;
+  }
+}
+
+/* ── App Key / Token 竖向堆叠 + 可清空 ── */
+.credStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrap .formInput {
+  flex: 1;
+  padding-right: 34px; /* 给清空按钮留位 */
+}
+
+.clearBtn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.clearBtn:hover {
+  color: var(--danger-text);
+  border-color: var(--danger-text);
+}

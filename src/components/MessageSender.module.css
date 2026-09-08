@@ -1,0 +1,498 @@
+.panel {
+  padding: 18px 20px;
+  background: var(--bg-surface);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  flex-shrink: 0;
+}
+
+.targetBadge {
+  background: var(--accent-dim);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--mono);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.targetDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.noTarget {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+/* ── Message type horizontal tabs ── */
+.typeTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.typeTab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-mid);
+  background: var(--bg-elevated);
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.typeTab:hover {
+  border-color: var(--accent-border);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  transform: translateY(-1px);
+}
+
+.typeTabActive {
+  background: var(--accent-dim) !important;
+  border-color: var(--accent-border) !important;
+  color: var(--accent-text) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(100, 120, 255, 0.1);
+}
+
+.typeTabIcon {
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Quick templates row ── */
+.quickRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.quickLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-family: var(--mono);
+  padding-top: 6px;
+  flex-shrink: 0;
+}
+
+.quickBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.quickBtn {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 5px 14px;
+  font-size: 12px;
+  font-family: var(--mono);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+.quickBtn:hover {
+  border-color: var(--accent-border);
+  color: var(--accent-text);
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+}
+
+/* ── Body ── */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Fields (scrollable region) ── */
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-right: -4px;
+}
+
+.fieldItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--sans);
+}
+
+.required {
+  color: var(--danger-text);
+}
+
+.input {
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  font-family: var(--mono);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.input::placeholder { color: var(--text-muted); }
+.input:focus {
+  border-color: var(--accent-border);
+  background: var(--bg-active);
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.textarea {
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  font-family: var(--mono);
+  resize: vertical;
+  line-height: 1.6;
+  transition: all 0.2s ease;
+  width: 100%;
+  min-height: 100px;
+}
+.textarea::placeholder { color: var(--text-muted); }
+.textarea:focus {
+  border-color: var(--accent-border);
+  background: var(--bg-active);
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* ── Send row (pinned at bottom) ── */
+.sendRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.batchGroup {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex: 1;
+  min-width: 200px;
+}
+
+.batchItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.batchItem label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.batchInput {
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  width: 90px;
+  transition: all 0.2s ease;
+}
+.batchInput:focus {
+  border-color: var(--accent-border);
+  background: var(--bg-active);
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.batchNote {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  padding-bottom: 8px;
+  white-space: nowrap;
+}
+
+/* ── Send button ── */
+.sendBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-grad);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--sans);
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+.sendBtn:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+.sendBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.sendBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 转圈动画 */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent-border);
+  border-top-color: var(--accent-text);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.warn {
+  text-align: center;
+  font-size: 12px;
+  color: var(--warning-text);
+  background: var(--warning-dim);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-family: var(--mono);
+}
+
+@media (max-width: 700px) {
+  .typeTabs {
+    gap: 4px;
+  }
+  .sendRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sendBtn {
+    justify-content: center;
+  }
+}
+
+/* ── 下发通道切换 IM / KV ── */
+.channelTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.channelTab {
+  flex: 1;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--mono);
+  color: var(--text-secondary);
+  background: var(--bg-elevated, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.channelTab:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-border);
+}
+
+.channelTabActive {
+  color: #fff;
+  background: var(--accent-grad);
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── 类型选择器 ── */
+.selectRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.selectLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+.select {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── JSON 编辑器头部 + 提示 ── */
+.editorHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.resetBtn {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--accent-text, var(--accent));
+  background: transparent;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm, 6px);
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.resetBtn:hover {
+  background: var(--accent-dim);
+}
+
+.subHint {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  background: var(--bg-elevated, rgba(0, 0, 0, 0.03));
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm, 6px);
+  padding: 6px 8px;
+  margin-bottom: 8px;
+}
+
+.editorNote {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  margin-top: 6px;
+}
+
+/* ── KV 下发选项 ── */
+.kvOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--bg-elevated, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.kvOpt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-primary);
+  font-family: var(--mono);
+  cursor: pointer;
+}

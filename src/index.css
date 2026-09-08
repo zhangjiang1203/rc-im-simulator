@@ -1,0 +1,175 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Dark theme (default) ── */
+/* 背景提亮一档（#181c26），文字拉满到 #f1f3fa，次级/muted 对比度都 ≥ 4.5:1 */
+:root, [data-theme="dark"] {
+  --bg-base:      #181c26;
+  --bg-surface:   #1f2335;
+  --bg-elevated:  #252b40;
+  --bg-hover:     #2b324a;
+  --bg-active:    #303855;
+
+  --border:       #2b324a;
+  --border-mid:   #3a4260;
+  --border-bright:#4e5880;
+
+  /* 主文字 #f1f3fa（几乎纯白），次级 #b0bace（浅蓝灰），muted #7a86a8（中灰蓝） */
+  --text-primary: #f1f3fa;
+  --text-secondary:#b0bace;
+  --text-muted:   #7a86a8;
+  --text-inverse: #181c26;
+
+  --accent:       #6d8bff;
+  --accent-dim:   rgba(109,139,255,0.16);
+  --accent-border:rgba(109,139,255,0.42);
+  --accent-text:  #b6c7ff;
+  --accent-grad:  linear-gradient(135deg, #6d8bff 0%, #8b6dff 100%);
+
+  --success:      #22d397;
+  --success-dim:  rgba(34,211,151,0.14);
+  --success-border:rgba(34,211,151,0.38);
+  --success-text: #7ef5d0;
+
+  --warning:      #ffb836;
+  --warning-dim:  rgba(255,184,54,0.14);
+  --warning-border:rgba(255,184,54,0.38);
+  --warning-text: #ffe08a;
+
+  --danger:       #ff5757;
+  --danger-dim:   rgba(255,87,87,0.14);
+  --danger-border:rgba(255,87,87,0.38);
+  --danger-text:  #ffaeae;
+
+  /* JSON highlight — 更亮，深背景下清晰可辨 */
+  --json-key:     #7dd3fc;
+  --json-str:     #86efac;
+  --json-num:     #fbbf24;
+  --json-bool:    #d8b4fe;
+  --json-null:    #94a3b8;
+  --json-bracket: #93a8c8;
+  --json-bg:      #252b40;
+  --json-border:  #3a4260;
+}
+
+/* ── Light theme ── */
+/* 背景纯白/极浅灰，文字深到 #0f1120，次级文字 #374265，muted #5b6690 */
+[data-theme="light"] {
+  --bg-base:      #eef1f8;
+  --bg-surface:   #ffffff;
+  --bg-elevated:  #e6eaf6;
+  --bg-hover:     #d8dff2;
+  --bg-active:    #cdd5ed;
+
+  --border:       #c6cfe8;
+  --border-mid:   #a8b4d8;
+  --border-bright:#7a8dbf;
+
+  /* 主文字近黑 #0f1120，次级深蓝灰 #2e3a5c，muted #5b6690 */
+  --text-primary: #0f1120;
+  --text-secondary:#2e3a5c;
+  --text-muted:   #5b6690;
+  --text-inverse: #ffffff;
+
+  --accent:       #4361ee;
+  --accent-dim:   rgba(67,97,238,0.1);
+  --accent-border:rgba(67,97,238,0.32);
+  --accent-text:  #2f45c5;
+  --accent-grad:  linear-gradient(135deg, #4361ee 0%, #7048e8 100%);
+
+  --success:      #047857;
+  --success-dim:  rgba(4,120,87,0.1);
+  --success-border:rgba(4,120,87,0.35);
+  --success-text: #065f46;
+
+  --warning:      #b45309;
+  --warning-dim:  rgba(180,83,9,0.1);
+  --warning-border:rgba(180,83,9,0.35);
+  --warning-text: #78350f;
+
+  --danger:       #c81e1e;
+  --danger-dim:   rgba(200,30,30,0.1);
+  --danger-border:rgba(200,30,30,0.35);
+  --danger-text:  #7f1d1d;
+
+  /* JSON highlight — 深色字，浅背景下清晰 */
+  --json-key:     #1340a8;
+  --json-str:     #065f46;
+  --json-num:     #92400e;
+  --json-bool:    #5b21b6;
+  --json-null:    #475569;
+  --json-bracket: #1e293b;
+  --json-bg:      #e6eaf6;
+  --json-border:  #a8b4d8;
+}
+
+/* ── Radius / typography / spacing / elevation tokens ── */
+:root {
+  --radius-sm: 6px;
+  --radius:    9px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+
+  --mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, 'SF Mono', monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Inter', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+
+  /* spacing scale */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+}
+
+/* soft elevation — dark uses deep translucent shadows, light uses gentle grey */
+:root, [data-theme="dark"] {
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.28);
+  --shadow:    0 4px 16px rgba(0,0,0,0.32);
+  --shadow-md: 0 8px 28px rgba(0,0,0,0.38);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,0.46);
+  --ring: 0 0 0 3px var(--accent-dim);
+}
+[data-theme="light"] {
+  --shadow-sm: 0 1px 2px rgba(15,17,32,0.06);
+  --shadow:    0 4px 16px rgba(15,17,32,0.08);
+  --shadow-md: 0 10px 30px rgba(15,17,32,0.10);
+  --shadow-lg: 0 20px 48px rgba(15,17,32,0.14);
+  --ring: 0 0 0 3px var(--accent-dim);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s, color 0.2s;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: var(--mono);
+  outline: none;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 8px; border: 2px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-bright); background-clip: padding-box; }

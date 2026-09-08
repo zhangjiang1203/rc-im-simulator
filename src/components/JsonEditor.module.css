@@ -1,0 +1,127 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--json-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--json-bg);
+}
+
+/* toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--json-border);
+  min-height: 30px;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.errMsg {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--danger-text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.btn {
+  font-size: 10px;
+  font-family: var(--mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-mid);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.btn:hover {
+  border-color: var(--accent-border);
+  color: var(--accent-text);
+  background: var(--accent-dim);
+}
+.btnActive {
+  border-color: var(--accent-border) !important;
+  color: var(--accent-text) !important;
+  background: var(--accent-dim) !important;
+}
+
+/* body */
+.body {
+  display: flex;
+  min-height: 0;
+}
+
+.split .editor,
+.split .preview {
+  width: 50%;
+}
+
+.editor {
+  width: 100%;
+  resize: none;
+  border: none;
+  background: var(--json-bg);
+  color: var(--text-primary);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.65;
+  padding: 10px 12px;
+  outline: none;
+  min-height: 160px;
+  tab-size: 2;
+  transition: background 0.15s;
+}
+
+.editor::placeholder {
+  color: var(--text-muted);
+}
+
+.editorError {
+  background: color-mix(in srgb, var(--json-bg) 96%, var(--danger) 4%);
+}
+
+.preview {
+  border-left: 1px solid var(--json-border);
+  overflow: auto;
+  background: var(--bg-base);
+}
+
+.preCode {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.65;
+  padding: 10px 12px;
+  white-space: pre;
+  margin: 0;
+}
+
+/* JSON token colors — global so dangerouslySetInnerHTML works */
+:global(.jk)   { color: var(--json-key); }
+:global(.js)   { color: var(--json-str); }
+:global(.jnum) { color: var(--json-num); }
+:global(.jb)   { color: var(--json-bool); }
+:global(.jn)   { color: var(--json-null); }
+:global(.jbr)  { color: var(--json-bracket); }
+:global(.jc)   { color: var(--json-bracket); }
