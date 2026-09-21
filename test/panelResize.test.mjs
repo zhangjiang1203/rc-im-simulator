@@ -94,3 +94,13 @@ test('刷新页面后恢复默认宽度', async () => {
   assert.ok(Math.abs(restored.compose - initial.compose) < 1);
   await page.close();
 });
+
+test('批量发送次数允许输入 100000 次', async () => {
+  const page = await openApp();
+  const countInput = page.locator('label:has-text("Count")').locator('xpath=following-sibling::input');
+
+  await countInput.fill('100000');
+
+  assert.equal(await countInput.inputValue(), '100000');
+  await page.close();
+});

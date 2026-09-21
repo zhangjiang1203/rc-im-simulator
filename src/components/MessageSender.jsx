@@ -350,8 +350,8 @@ export default function MessageSender() {
           <div className={styles.batchGroup}>
             <div className={styles.batchItem}>
               <label>Count</label>
-              <input type="number" min={1} max={100} value={batchCount}
-                onChange={e => setBatchCount(Math.max(1, Math.min(100, Number(e.target.value))))}
+              <input type="number" min={1} max={100000} value={batchCount}
+                onChange={e => setBatchCount(Math.max(1, Math.min(100000, Number(e.target.value))))}
                 className={styles.batchInput} />
             </div>
             <div className={styles.batchItem}>
